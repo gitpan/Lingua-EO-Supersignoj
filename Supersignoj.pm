@@ -3,7 +3,7 @@ use Attribute::Property;
 use strict;
 use utf8;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 our %cxapeloj = (
     h          => [ qw/ Ch ch Gh gh Hh hh Jh jh Sh sh Uw uw / ],

@@ -12,25 +12,25 @@ To install this module type the following:
 Or use CPANPLUS to automate the process.
 
 Module documentation:
-
 NAME
     Lingua::EO::Supersignoj - Convert Esperanto characters
 
 SYNOPSIS
         use Lingua::EO::Supersignoj;
 
-        my $transformilo = Lingua::EO::Supersignoj->nova(
+        my $transkodigilo = Lingua::EO::Supersignoj->nova(
             de => 'fronte',
             al => 'X',
             u  => 'u*'
         );
-        print $transformilo->transformu('Mia ^suoj estas ankau* en la ^cambro.');
+        print $transkodigilo->transkodigu('Mia ^suoj estas ankau* en la ^cambro.');
         # prints: Mia sxuoj estas ankaux en la cxambro.
     
-        my $transformilo = Lingua::EO::Supersignoj->nova(de => 'X');
+        my $transkodigilo = Lingua::EO::Supersignoj->nova(de => 'X');
+
         for (qw(X x H h poste fronte apostrofoj iso unikodo)) {
-            $transformilo->al = $_;
-            print $transformilo->transformu(
+            $transkodigilo->al = $_;
+            print $transkodigilo->transkodigu(
                 'Laux Ludoviko Zamenhof bongustas ' .
                 'fresxa cxecxa mangxajxo kun spicoj.'
             );
@@ -59,10 +59,13 @@ DESCRIPTION
                 If any alternative for u-caron or U-caron is given, the ones
                 from the source character set are not used.
 
+                To leave u's alone, assign a reference to an empty array:
+                "$objekto->u = [];".
+
     U           Same as "u", but for uppercase U.
 
   Method
-    transformu  Takes one or more strings to convert and returns a list of
+    transkodigu Takes one or more strings to convert and returns a list of
                 converted strings.
 
                 Converts from "X" if "$objekto->de" has not been set.
@@ -97,7 +100,7 @@ TODO / KNOWN ISSUES
     to.
 
     Since converting bare "u" without diacritic would require a word list,
-    this is not possible.
+    this module does not provide such functionality.
 
 AUTHOR
     Juerd <juerd@cpan.org> <http://juerd.nl/>
